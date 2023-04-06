@@ -9,3 +9,6 @@ Creating function
 Add images
 Linking to another section of the same page
 
+Add a CSS stylesheet
+Add CSS to my Html
+Using CSS to speficy how those html elements look and are presented.
