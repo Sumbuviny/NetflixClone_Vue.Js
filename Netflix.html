@@ -1,0 +1,174 @@
+<!Doctype html>
+<html>
+    <head>
+        <title> Netflix Clone  </title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=edge">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+              
+            <!--logo-->
+            <div class="logo" id="logo">
+                <img v-bind:src="logoLink" alt="Netflix logo" class="netflixLogo">
+            </div>
+            
+            <!--header-->
+            <header>
+                <div class="description">
+                   <h1 class="title">{{title}}</h1>
+
+                   <!--nav-->
+                  <nav>
+                    <!-- v-if and v-else vue events-->
+                    <button v-if="state==='on'" v-on:click="changeState('off')" id ="hide"class="nav_list" >{{hide}}</button>
+                    <button v-else="state==='off'" v-on:click="changeState('on')" id ="show"class="nav_list">{{show}}</button>
+                    <a href="#list" class="nav_list" v-if="state==='on'">{{list}}</a>
+                    <a href="#action" class="nav_list" v-if="state==='on'">{{action}}</a>
+                    <a href="#series" class="nav_list" v-if="state==='on'">{{serie}}</a>
+                    <a href="#comedy" class="nav_list" v-if="state==='on'">{{comedy}}</a>
+                  </nav>
+                </div>  
+                <div class="fade"></div> 
+            </header>
+    
+
+            <!----My list & v-if -->
+            <div id="container" v-if="state==='on'">
+                <h2 id="list">{{originalheading}}</h2>
+                    
+                    <!--v-bind-->
+                <div id="images">
+                    <img v-bind:src="originalLink" alt="maltilda Movie" class="image_poster netflix">
+                    <img v-bind:src="originalLink1" alt="fatherhood Movie" class="image_poster netflix">
+                    <img v-bind:src="originalLink2" alt="tall girl Movie" class="image_poster netflix">
+                    <img v-bind:src="actionLink" alt="man of steal Movie" class="image_poster netflix">
+                    <img v-bind:src="actionLink1" alt="avatar Movie" class="image_poster netflix">
+                    <img v-bind:src="serieLink" alt="bridgerton" class="image_poster netflix">
+                    <img v-bind:src="serieLink3" alt="Anne with an E" class="image_poster netflix">
+                    <img v-bind:src="comedyLink2" alt="madea" class="image_poster netflix">
+                    <img v-bind:src="comedyLink3" alt="national security" class="image_poster netflix">
+                    <img v-bind:src="comedyLink4" alt="me time" class="image_poster netflix">
+                </div>
+            </div>
+             
+            <!----Action & v-if-->
+            <div id="container" v-if="state==='on'">
+                <h2 id="action">{{actionHeading}}</h2>
+
+                <!--v-bind-->
+                <div id="images">
+                  <img v-bind:src="actionLink" alt="man of steal Movie" class="image_poster netflix">
+                  <img v-bind:src="actionLink1" alt="avatar Movie" class="image_poster netflix">
+                  <img v-bind:src="actionLink2" alt="Man on fire Movie" class="image_poster netflix">
+                  <img v-bind:src="actionLink3" alt="equalizer Movie" class="image_poster netflix">
+                  <img v-bind:src="actionLink4" alt="rush hour Movie" class="image_poster netflix">
+                  <img v-bind:src="actionLink" alt="man of steal Movie" class="image_poster netflix">
+                  <img v-bind:src="actionLink1" alt="avatar Movie" class="image_poster netflix">
+                  <img v-bind:src="actionLink2" alt="Man on fire Movie" class="image_poster netflix">
+                  <img v-bind:src="actionLink3" alt="equalizer Movie" class="image_poster netflix">
+                  <img v-bind:src="actionLink4" alt="rush hour Movie" class="image_poster netflix">  
+                </div>
+            </div>
+
+            <!--Serie & v-if-->
+            <div id="container" v-if="state==='on'">
+                <h2 id="series">{{serieHeading}}</h2>
+
+                <!--v-bind-->
+                <div id="images">
+                  <img v-bind:src="serieLink" alt="bridgerton" class="image_poster netflix">
+                  <img v-bind:src="serieLink1" alt="Henry and Meghan" class="image_poster netflix">
+                  <img v-bind:src="serieLink2" alt="Sister Sister" class="image_poster netflix">
+                  <img v-bind:src="serieLink3" alt="Anne with an E" class="image_poster netflix">
+                  <img v-bind:src="serieLink4" alt="Supergirl" class="image_poster netflix">
+                  <img v-bind:src="serieLink" alt="bridgerton" class="image_poster netflix">
+                  <img v-bind:src="serieLink1" alt="Henry and Meghan" class="image_poster netflix">
+                  <img v-bind:src="serieLink2" alt="Sister Sister" class="image_poster netflix">
+                  <img v-bind:src="serieLink3" alt="Anne with an E" class="image_poster netflix">
+                  <img v-bind:src="serieLink4" alt="Supergirl" class="image_poster netflix"> 
+                </div>
+            </div>
+
+            <!--Comedy & v-if-->        
+            
+            <div id="container" v-if="state==='on'">
+                <h2 id="comedy">{{comdeyHeading}}</h2>
+
+                <!--v-bind-->
+                <div id="images">
+                    <img v-bind:src="comedyLink" alt="daddy day care" class="image_poster netflix">
+                    <img v-bind:src="comedyLink1" alt="tall girl" class="image_poster netflix">
+                    <img v-bind:src="comedyLink2" alt="madea" class="image_poster netflix">
+                    <img v-bind:src="comedyLink3" alt="national security" class="image_poster netflix">
+                    <img v-bind:src="comedyLink4" alt="me time" class="image_poster netflix">
+                    <img v-bind:src="comedyLink" alt="daddy day care" class="image_poster netflix">
+                    <img v-bind:src="comedyLink1" alt="tall girl" class="image_poster netflix">
+                    <img v-bind:src="comedyLink2" alt="madea" class="image_poster netflix">
+                    <img v-bind:src="comedyLink3" alt="national security" class="image_poster netflix">
+                    <img v-bind:src="comedyLink4" alt="me time" class="image_poster netflix">
+                  </div>
+            </div>
+
+           
+        </div>
+
+        <script>
+            const { createApp } = Vue
+
+            createApp({
+
+                // data object
+                data() {
+                    el: "#app"
+                    return {
+                        state: "on", // state
+                        logoLink: "netflix_logo.png",
+                        title: "Netflix",
+                        hide: "Hide",
+                        list: "My List",
+                        action: "Action Movies",
+                        serie: "Series",
+                        comedy: "Comedy Movies",
+                        show: "Show",
+                        originalheading: "My list",
+                        originalLink: "matilda.jpg",
+                        originalLink1 : "fatherhood.jpg",
+                        originalLink2: "tallGirl.jpg",
+                        actionHeading:"Action Movie",
+                        actionLink: "manOfSteel.jpg",
+                        actionLink1:"avatar.jpg",
+                        actionLink2: "man_on_fire.jpg",
+                        actionLink3: "equalizer.jpg",
+                        actionLink4: "rush_hour.jpg",
+                        serieHeading: "Series",
+                        serieLink: "Bridgerton.jpg",
+                        serieLink1: "henry_meghan.jpg",
+                        serieLink2: "sister_sister.jpg",
+                        serieLink3: "anne.jpg",
+                        serieLink4: "supergirl.jpg",
+                        comdeyHeading: "Comedy Movie",
+                        comedyLink: "daddy_daycare.jpg",
+                        comedyLink1: "tallGirl.jpg",
+                        comedyLink2:"madea.jpg",
+                        comedyLink3: "national_security.jpg",
+                        comedyLink4: "me_time.jpg"
+                                            
+                    }
+                },
+                
+                // methods object
+                methods:{
+                     
+                    changeState: function(newState){
+                         this.state = newState;
+                    }
+              },
+
+            }).mount('#app')
+        
+
+         </script>
+    </body>
+</html>
